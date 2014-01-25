@@ -17,7 +17,7 @@ var T = (function() {
 
     my.define = function(typename, type) {
         if (this.loglevel) {
-            console.log("Creating type " + typename + " for " + JSON.stringify(type));
+            my.logfunction("Creating type " + typename + " for " + JSON.stringify(type));
         }
 
         // Check that the type doesn't exist

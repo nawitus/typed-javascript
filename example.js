@@ -33,8 +33,6 @@ var test = function (person) {
 
 // Test types automatically
 var test2 = T.fn(T.Person, T.Country, function(person, country) {
-    JSON.stringify(person);
-    JSON.stringify(country);
     console.log(person.name + " is from " + country.name + ".");
 });
 
