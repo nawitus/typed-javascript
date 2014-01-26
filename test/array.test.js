@@ -9,7 +9,7 @@
 var assert = require("assert");
 
 // Load type library
-var T = require("./typed");
+var T = require("../typed");
 
 
 describe('array tests', function() {

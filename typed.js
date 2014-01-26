@@ -3,7 +3,6 @@
 "use strict";
 
 // Global Type object
-// TODO: unit tests.
 //
 // Example usage:
 // First, define a type:
@@ -99,8 +98,17 @@ var T = (function() {
 
     // Define Array type
     my.Array = function(obj) {
-        if(Object.prototype.toString.call(obj) !== "[object Array]") {
+        if (Object.prototype.toString.call(obj) !== "[object Array]") {
             throw "Error! Object " + JSON.stringify(obj) + " is not an array!";
+        }
+
+        return obj;
+    };
+
+    // Define string type (e.g. string primitive)
+    my.string = function(obj) {
+        if (typeof obj !== "string") {
+            throw "Error! Object " + JSON.stringify(obj) + " is not a string primitive!";
         }
 
         return obj;

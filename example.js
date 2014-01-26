@@ -50,6 +50,9 @@ var aperson = T.Person({ name : "foobar", age : 25 });
 // Define an array
 var list = T.Array([]);
 
+// Define a string primitive
+var stringPrimitive = T.string("abc");
+
 // Error examples:
 
 // Define the same type again -> throw error
