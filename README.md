@@ -1,7 +1,17 @@
 typed-javascript
 =========
 
-Simple dynamic type checking for JavaScript. Runs in Node.js, and can be set off for production.
+Simple dynamic type checking for JavaScript. Runs in Node.js and in browser, and can be set off for production.
+
+Include in Node.js:
+```javascript
+var T = require("./typed");
+```
+
+Include in browser
+```html
+<script src="typed.js"></script>
+```
 
 See example.js for additional examples and typed.js for the source.
 
@@ -29,8 +39,6 @@ var test = function (person) {
 
 // Test types automatically
 var test2 = T.fn(T.Person, T.Country, function(person, country) {
-    JSON.stringify(person);
-    JSON.stringify(country);
     console.log(person.name + " is from " + country.name + ".");
 });
 
