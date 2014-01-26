@@ -1,4 +1,5 @@
 /*jslint node: true */
+/*global window: false */
 "use strict";
 
 // Global Type object
@@ -104,6 +105,6 @@ var T = (function() {
 }());
 
 // Node.JS module export
-if (module.exports) {
+if (window === undefined && module !== undefined && module.exports !== undefined) {
     module.exports = T;
 }

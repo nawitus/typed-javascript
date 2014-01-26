@@ -2,8 +2,11 @@
 "use strict";
 
 
-// Load type module
-var T = require("./typed");
+// Load type module in Node.js, in browsers, assume it exists
+// in the global namespace
+if (window === undefined && require !== undefined) {
+    var T = require("./typed");
+}
 
 // Print logging information
 T.loglevel = 1;
