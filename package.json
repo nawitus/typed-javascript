@@ -1,7 +1,7 @@
 {
   "name": "typed-javascript",
   "preferGlobal": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Panu Horsmalahti <panu.horsmalahti@iki.fi>",
   "description": "a simple dynamic type checking module in JavaScript",
   "contributors": [ 
