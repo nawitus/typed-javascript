@@ -74,18 +74,20 @@ var T = (function() {
         testfunction = function() {
             var i;
 
-            if (!my.disabled) {
-                // Loop through all the arguments except the last one,
-                // which is the main function
-                for (i = 0; i < typeargs.length - 1; i += 1) {
-                    // Test the type by calling the type function
-                    typeargs[i](arguments[i]);
-                }
+            // Loop through all the arguments except the last one,
+            // which is the main function
+            for (i = 0; i < typeargs.length - 1; i += 1) {
+                // Test the type by calling the type function
+                typeargs[i](arguments[i]);
             }
 
             // Call the main function with the provided arguments
             typeargs[typeargs.length - 1].apply(this, arguments);
         };
+
+        if (my.disabled) {
+            testfunction = typeargs[typeargs.length - 1];
+        }
 
         return testfunction;
     };
@@ -105,6 +107,6 @@ var T = (function() {
 }());
 
 // Node.JS module export
-if (window === undefined && module !== undefined && module.exports !== undefined) {
+if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
     module.exports = T;
 }

@@ -1,10 +1,11 @@
 /*jslint node: true */
+/*global window: false */
 "use strict";
 
 
 // Load type module in Node.js, in browsers, assume it exists
 // in the global namespace
-if (window === undefined && require !== undefined) {
+if (typeof window === "undefined" && typeof require !== "undefined") {
     var T = require("./typed");
 }
 
