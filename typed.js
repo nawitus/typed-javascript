@@ -123,6 +123,24 @@ var T = (function() {
         return obj;
     };
 
+    // Define number type (e.g. number primitive)
+    my.number = function(obj) {
+        if (typeof obj !== "number") {
+            throw "Error! Object " + JSON.stringify(obj) + " is not a number primitive!";
+        }
+
+        return obj;
+    };
+
+    // Define a number object type
+    my.Number = function(obj) {
+        if (Object.prototype.toString.call(obj) !== "[object Number]" || typeof obj !== "object") {
+            throw "Error! Object " + JSON.stringify(obj) + " is not a Number object!";
+        }
+
+        return obj;
+    };
+
     // Define log level.
     // 0 => No logging
     // 1 => Logging to console.log (default)

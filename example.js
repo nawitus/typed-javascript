@@ -53,8 +53,14 @@ var list = T.Array([]);
 // Define a string primitive
 var stringPrimitive = T.string("abc");
 
-// Define a String Object
+// Define a String object
 var stringObject = T.String(new String("abc"));
+
+// Define a number primitive
+var numberPrimitive = T.number(5);
+
+// Define a Number object
+var numberObject = T.Number(new Number(5));
 
 // Error examples:
 
