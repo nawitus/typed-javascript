@@ -35,6 +35,11 @@ describe('typed-javascript main tests', function() {
         assert(T.Foo(foo) === foo);
     });
 
+    it('should support the Any type', function() {
+        var foo = { a : 10 };
+        assert(T.Any(foo) === foo);
+    });
+
     it('should return the object', function() {
         var bar = { a : 10, b : 20 },
             barFunc;
@@ -48,6 +53,18 @@ describe('typed-javascript main tests', function() {
         });
 
         barFunc(bar);
+    });
+
+    it('should support the any type', function() {
+        var any = { a : 10 },
+            anyFunc;
+
+        // Define a test function
+        anyFunc = T.fn(T.Any, function(testany) {
+            return testany;
+        });
+
+        anyFunc(any);
     });
 
     it('should throw an exception because of invalid type name', function(done) {

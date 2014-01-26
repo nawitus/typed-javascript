@@ -92,6 +92,11 @@ var T = (function() {
         return testfunction;
     };
 
+    // Define Any type
+    my.Any = function(obj) {
+        return obj;
+    };
+
     // Define log level.
     // 0 => No logging
     // 1 => Logging to console.log (default)

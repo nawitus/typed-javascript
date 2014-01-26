@@ -35,14 +35,14 @@ var test = function (person) {
     console.log(person.name + " is " + person.age + " years old.");
 };
 
-// Test types automatically
-var test2 = T.fn(T.Person, T.Country, function(person, country) {
-    console.log(person.name + " is from " + country.name + ".");
+// Test types automatically, Any is for any type
+var test2 = T.fn(T.Person, T.Country, T.Any, function(person, country, any) {
+    console.log(person.name + " is from " + country.name + " and " + any + ".");
 });
 
 // Function calls
 test({ name : "foo", age : 20});
-test2({ name : "bar", age : 30}, { name : "Internet" });
+test2({ name : "bar", age : 30}, { name : "Internet" }, "somewhere");
 
 // Define a new person with type checking
 var aperson = T.Person({ name : "foobar", age : 25 });
