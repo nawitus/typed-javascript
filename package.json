@@ -1,0 +1,33 @@
+{
+  "name": "typed-javascript",
+  "preferGlobal": false,
+  "version": "0.1.0",
+  "author": "Panu Horsmalahti <panu.horsmalahti@iki.fi>",
+  "description": "a simple dynamic type checking module in JavaScript",
+  "contributors": [ 
+    {
+      "name": "Panu Horsmalahti",
+      "email": "panu.horsmalahti@iki.fi"
+    } 
+  ],
+  "main": ".typed.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nawitus/typed-javascript.git"
+  },
+  "keywords": [
+    "typed",
+    "types",
+    "typechecking",
+    "javascript",
+  ],
+  "dependencies" : {},
+  "analyze": true,
+  "devDependencies": {
+    "mocha" :  "~1.17.1"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  }
+}
