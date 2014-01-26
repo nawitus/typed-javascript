@@ -47,6 +47,9 @@ test2({ name : "bar", age : 30}, { name : "Internet" }, "somewhere");
 // Define a new person with type checking
 var aperson = T.Person({ name : "foobar", age : 25 });
 
+// Define an array
+var list = T.Array([]);
+
 // Error examples:
 
 // Define the same type again -> throw error

@@ -35,11 +35,6 @@ describe('typed-javascript main tests', function() {
         assert(T.Foo(foo) === foo);
     });
 
-    it('should support the Any type', function() {
-        var foo = { a : 10 };
-        assert(T.Any(foo) === foo);
-    });
-
     it('should return the object', function() {
         var bar = { a : 10, b : 20 },
             barFunc;
@@ -53,18 +48,6 @@ describe('typed-javascript main tests', function() {
         });
 
         barFunc(bar);
-    });
-
-    it('should support the any type', function() {
-        var any = { a : 10 },
-            anyFunc;
-
-        // Define a test function
-        anyFunc = T.fn(T.Any, function(testany) {
-            return testany;
-        });
-
-        anyFunc(any);
     });
 
     it('should throw an exception because of invalid type name', function(done) {
@@ -112,5 +95,70 @@ describe('typed-javascript main tests', function() {
         T.define("FooBarTwo", { a: null, b: null});
         T.FooBarTwo({ a: 10 });
         T.disabled = false;
+    });
+
+    describe('any type tests', function() {
+        it('should support the Any type', function() {
+            var foo = { a : 10 };
+            assert(T.Any(foo) === foo);
+        });
+
+        it('should support the Any type in a function parameter', function() {
+            var any = { a : 10 },
+                anyFunc;
+
+            // Define a test function
+            anyFunc = T.fn(T.Any, function(testany) {
+                return testany;
+            });
+
+            anyFunc(any);
+        });
+    });
+
+    describe('array tests', function() {
+        it('should support the array type', function() {
+            var list = [];
+
+            list = T.Array(list);
+        });
+
+        it('should support the array type in a function parameter', function() {
+            var list = [],
+                arrayFunc;
+
+            // Define a test function
+            arrayFunc = T.fn(T.Array, function(testarray) {
+                return testarray;
+            });
+
+            arrayFunc(list);
+        });
+
+        it('should throw an exception because the object is not an array', function(done) {
+            var notlist = {};
+
+            try {
+                notlist = T.Array(notlist);
+            } catch (error) {
+                done();
+            }
+        });
+
+        it('should throw an exception because the function parameter is not an array', function(done) {
+            var notlist = {},
+                arrayFunc;
+
+            // Define a test function
+            arrayFunc = T.fn(T.Array, function(testarray) {
+                return testarray;
+            });
+
+            try {
+                arrayFunc(notlist);
+            } catch (error) {
+                done();
+            }
+        });
     });
 });

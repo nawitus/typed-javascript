@@ -97,6 +97,15 @@ var T = (function() {
         return obj;
     };
 
+    // Define Array type
+    my.Array = function(obj) {
+        if(Object.prototype.toString.call(obj) !== '[object Array]') {
+            throw "Error! Object " + JSON.stringify(obj) + " is not an array!";
+        }
+
+        return obj;
+    };
+
     // Define log level.
     // 0 => No logging
     // 1 => Logging to console.log (default)
