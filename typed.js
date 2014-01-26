@@ -114,6 +114,15 @@ var T = (function() {
         return obj;
     };
 
+    // Define a String object type
+    my.String = function(obj) {
+        if (Object.prototype.toString.call(obj) !== "[object String]" || typeof obj !== "object") {
+            throw "Error! Object " + JSON.stringify(obj) + " is not a String object!";
+        }
+
+        return obj;
+    };
+
     // Define log level.
     // 0 => No logging
     // 1 => Logging to console.log (default)

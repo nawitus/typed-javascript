@@ -28,4 +28,30 @@ describe('string primitive type tests', function() {
 
         stringFunc("abc");
     });
+
+    it('should throw an exception because the object is not a string primitive', function(done) {
+        var notStringPrimitive = new String("abc");
+
+        try {
+            notStringPrimitive = T.string(notStringPrimitive);
+        } catch (error) {
+            done();
+        }
+    });
+
+    it('should throw an exception because the function parameter is not a string primitive', function(done) {
+        var notStringPrimitive = new String("abc"),
+            stringFunc;
+
+        // Define a test function
+        stringFunc = T.fn(T.string, function(teststring) {
+            return teststring;
+        });
+
+        try {
+            stringFunc(notStringPrimitive);
+        } catch (error) {
+            done();
+        }
+    });
 });
