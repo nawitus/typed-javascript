@@ -19,7 +19,7 @@
     "typed",
     "types",
     "typechecking",
-    "javascript",
+    "javascript"
   ],
   "dependencies" : {},
   "analyze": true,
