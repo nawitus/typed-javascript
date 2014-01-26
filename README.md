@@ -41,3 +41,4 @@ var test2 = T.fn(T.Person, T.Country, function(person, country) {
 
 test({ name : "foo", age : 20});
 test2({ name : "bar", age : 30}, { name : "Internet" });
+```
