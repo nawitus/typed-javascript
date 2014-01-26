@@ -99,7 +99,7 @@ var T = (function() {
 
     // Define Array type
     my.Array = function(obj) {
-        if(Object.prototype.toString.call(obj) !== '[object Array]') {
+        if(Object.prototype.toString.call(obj) !== "[object Array]") {
             throw "Error! Object " + JSON.stringify(obj) + " is not an array!";
         }
 
