@@ -40,8 +40,12 @@ var test2 = T.fn(T.Person, T.Country, function(person, country) {
     console.log(person.name + " is from " + country.name + ".");
 });
 
+// Function calls
 test({ name : "foo", age : 20});
 test2({ name : "bar", age : 30}, { name : "Internet" });
+
+// Define a new person with type checking
+var aperson = T.Person({ name : "foobar", age : 25 });
 
 // Error examples:
 

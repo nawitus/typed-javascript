@@ -16,9 +16,6 @@ Include in browser
 See example.js for additional examples and typed.js for the source.
 
 ```javascript
-// Load type module
-var T = require("./typed");
-
 // Define two simple types
 T.define("Person", {
     name: null,
