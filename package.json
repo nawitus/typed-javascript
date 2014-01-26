@@ -21,13 +21,15 @@
     "typechecking",
     "javascript"
   ],
-  "dependencies" : {
-    "grunt" : "~0.4.2"
-    },
+  "dependencies" : {},
   "analyze": true,
   "devDependencies": {
     "mocha" :  "~1.17.1",
-    "grunt-cli" :  "~0.1.13"
+    "grunt-cli" :  "~0.1.13",
+    "grunt" : "~0.4.2",
+    "grunt-contrib-jshint" : "~0.8.0",
+    "grunt-contrib-watch" : "~0.5.3",
+    "grunt-mocha-test" : "~0.8.2"
   },
   "license": "MIT",
   "engines": {
