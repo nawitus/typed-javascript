@@ -62,6 +62,12 @@ var numberPrimitive = T.number(5);
 // Define a Number object
 var numberObject = T.Number(new Number(5));
 
+// Define a boolean primitive
+var booleanPrimitive = T.boolean(true);
+
+// Define a Boolean object
+var booleanObject = T.Boolean(true);
+
 // Error examples:
 
 // Define the same type again -> throw error

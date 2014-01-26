@@ -40,7 +40,7 @@ describe('number primitive type tests', function() {
     });
 
     it('should throw an exception because the function parameter is not a number primitive', function(done) {
-        var notNumberPrimitive = new Number("abc"),
+        var notNumberPrimitive = new Number(5),
             numFunc;
 
         // Define a test function

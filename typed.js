@@ -91,12 +91,12 @@ var T = (function() {
         return testfunction;
     };
 
-    // Define Any type
+    // Define the Any type
     my.Any = function(obj) {
         return obj;
     };
 
-    // Define Array type
+    // Define the Array type
     my.Array = function(obj) {
         if (Object.prototype.toString.call(obj) !== "[object Array]") {
             throw "Error! Object " + JSON.stringify(obj) + " is not an array!";
@@ -105,7 +105,7 @@ var T = (function() {
         return obj;
     };
 
-    // Define string type (e.g. string primitive)
+    // Define the string primitive type
     my.string = function(obj) {
         if (typeof obj !== "string") {
             throw "Error! Object " + JSON.stringify(obj) + " is not a string primitive!";
@@ -114,7 +114,7 @@ var T = (function() {
         return obj;
     };
 
-    // Define a String object type
+    // Define the String object type
     my.String = function(obj) {
         if (Object.prototype.toString.call(obj) !== "[object String]" || typeof obj !== "object") {
             throw "Error! Object " + JSON.stringify(obj) + " is not a String object!";
@@ -123,7 +123,7 @@ var T = (function() {
         return obj;
     };
 
-    // Define number type (e.g. number primitive)
+    // Define the number primitive type
     my.number = function(obj) {
         if (typeof obj !== "number") {
             throw "Error! Object " + JSON.stringify(obj) + " is not a number primitive!";
@@ -132,10 +132,28 @@ var T = (function() {
         return obj;
     };
 
-    // Define a number object type
+    // Define the number object type
     my.Number = function(obj) {
         if (Object.prototype.toString.call(obj) !== "[object Number]" || typeof obj !== "object") {
             throw "Error! Object " + JSON.stringify(obj) + " is not a Number object!";
+        }
+
+        return obj;
+    };
+
+    // Define the boolean primitive type
+    my.boolean = function(obj) {
+        if (typeof obj !== "boolean") {
+            throw "Error! Object " + JSON.stringify(obj) + " is not a boolean primitive!";
+        }
+
+        return obj;
+    };
+
+    // Define a boolean object type
+    my.Boolean = function(obj) {
+        if (Object.prototype.toString.call(obj) !== "[object Boolean]" || typeof obj !== "object") {
+            throw "Error! Object " + JSON.stringify(obj) + " is not a Boolean object!";
         }
 
         return obj;

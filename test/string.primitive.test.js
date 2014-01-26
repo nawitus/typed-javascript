@@ -22,8 +22,8 @@ describe('string primitive type tests', function() {
         var stringFunc;
 
         // Define a test function
-        stringFunc = T.fn(T.string, function(testany) {
-            return testany;
+        stringFunc = T.fn(T.string, function(teststr) {
+            return teststr;
         });
 
         stringFunc("abc");

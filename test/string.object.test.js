@@ -23,8 +23,8 @@ describe('string object type tests', function() {
         var stringFunc;
 
         // Define a test function
-        stringFunc = T.fn(T.String, function(testany) {
-            return testany;
+        stringFunc = T.fn(T.String, function(teststr) {
+            return teststr;
         });
 
         stringFunc(new String("abc"));
