@@ -16,15 +16,16 @@ T.loglevel = 1;
 // T.logfunction =  myCustomLogger;
 // T.disabled = true; // Disable test for production
 
-// Define two simple types
+// Define simple types
 T.define("Person", {
     name: null,
     age: null
 });
 
 
+// Recursion is supported
 T.define("Country", {
-    name: null
+    name: T.string
 });
 
 // Test type using in a normal JavaScript function
@@ -66,7 +67,7 @@ var numberObject = T.Number(new Number(5));
 var booleanPrimitive = T.boolean(true);
 
 // Define a Boolean object
-var booleanObject = T.Boolean(true);
+var booleanObject = T.Boolean(new Boolean(true));
 
 // Error examples:
 

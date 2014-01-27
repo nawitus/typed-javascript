@@ -23,7 +23,7 @@ T.define("Person", {
 });
 
 T.define("Country", {
-    name: null
+    name: T.string
 });
 
 // Test type using in a normal JavaScript function

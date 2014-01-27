@@ -15,7 +15,8 @@
 var T = (function() {
     var my = {},
         primitiveType,
-        objectType;
+        objectType,
+        types = [];
 
     my.define = function(typename, type) {
         if (this.loglevel) {
@@ -35,14 +36,20 @@ var T = (function() {
         // Create the type according to the type definition
         this[typename] = (function() {
             var typelist = [],
+                recursiveTypelist = [],
                 property,
                 typefunc = function(obj) {
                     if (!my.disabled) {
                         // Ensure that the object follows the type
                         typelist.forEach(function(type) {
-                            if (!obj[type]) {
+                            if (!obj.hasOwnProperty(type)) {
                                 throw "Error! Object " + JSON.stringify(obj) + " lacks " + type + "!";
                             }
+                        });
+
+                        // Ensure that recursive types are followed
+                        recursiveTypelist.forEach(function(typeObject) {
+                            typeObject.type(obj[typeObject.typename]);
                         });
                     }
 
@@ -54,14 +61,22 @@ var T = (function() {
             for (property in type) {
                 // Only checking own properties to increase performance
                 if (type.hasOwnProperty(property)) {
-                    if (type[property] === null) {
+                    // Check that the value of the type is not a recursive type definition
+                    if (types.indexOf(type[property]) === -1) {
                         typelist.push(property);
+                    } else {
+                        // Add recursive types to it's own list
+                        // Store a reference to the type object and the name of the property
+                        recursiveTypelist.push({ "type" : type[property], "typename" : property });
                     }
                 }
             }
 
             return typefunc;
         }());
+
+        // Add type to type list
+        types.push(this[typename]);
     };
 
     // Define a type tested function
@@ -105,6 +120,9 @@ var T = (function() {
             return obj;
         };
 
+        // Add type to type list
+        types.push(typeFunc);
+
         return typeFunc;
     };
 
@@ -118,6 +136,9 @@ var T = (function() {
 
             return obj;
         };
+
+        // Add type to type list
+        types.push(typeFunc);
 
         return typeFunc;
     };
@@ -141,11 +162,14 @@ var T = (function() {
 
         return obj;
     };
+    types.push(my.Array);
+
 
     // Define the Any type
     my.Any = function(obj) {
         return obj;
     };
+    types.push(my.Any);
 
     // Define log level.
     // 0 => No logging

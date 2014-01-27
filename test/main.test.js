@@ -35,6 +35,13 @@ describe('typed-javascript main tests', function() {
         assert(T.Foo(foo) === foo);
     });
 
+    it('should return the object if the value is falsy, null or undefined', function() {
+        var foo = { a : "", b : null, c : undefined };
+        T.define("Falsy", foo);
+
+        assert(T.Falsy(foo) === foo);
+    });
+
     it('should return the object', function() {
         var bar = { a : 10, b : 20 },
             barFunc;
