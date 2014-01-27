@@ -13,7 +13,9 @@
 //
 // Not implemented yet: support for basic types (string etc.)
 var T = (function() {
-    var my = {};
+    var my = {},
+        primitiveType,
+        objectType;
 
     my.define = function(typename, type) {
         if (this.loglevel) {
@@ -52,7 +54,9 @@ var T = (function() {
             for (property in type) {
                 // Only checking own properties to increase performance
                 if (type.hasOwnProperty(property)) {
-                    typelist.push(property);
+                    if (type[property] === null) {
+                        typelist.push(property);
+                    }
                 }
             }
 
@@ -91,10 +95,43 @@ var T = (function() {
         return testfunction;
     };
 
-    // Define the Any type
-    my.Any = function(obj) {
-        return obj;
+    // Function builder for testing primitive types
+    primitiveType = function(typename) {
+        var typeFunc = function(obj) {
+            if (typeof obj !== typename) {
+                throw "Error! Object " + JSON.stringify(obj) + " is not a " + typename + " primitive!";
+            }
+
+            return obj;
+        };
+
+        return typeFunc;
     };
+
+    // Function builder for testing object types for primitives
+    objectType = function(typename) {
+        var typeFunc = function(obj) {
+            // We need to test both the .call and typeof to be certain that it's not a primitive type
+            if (Object.prototype.toString.call(obj) !== "[object " + typename + "]" || typeof obj !== "object") {
+                throw "Error! Object " + JSON.stringify(obj) + " is not a " + typename + " object!";
+            }
+
+            return obj;
+        };
+
+        return typeFunc;
+    };
+
+
+    // Define primitive types
+    my.string = primitiveType("string");
+    my.number = primitiveType("number");
+    my.boolean = primitiveType("boolean");
+
+    // Define corresponding object types
+    my.String = objectType("String");
+    my.Number = objectType("Number");
+    my.Boolean = objectType("Boolean");
 
     // Define the Array type
     my.Array = function(obj) {
@@ -105,57 +142,8 @@ var T = (function() {
         return obj;
     };
 
-    // Define the string primitive type
-    my.string = function(obj) {
-        if (typeof obj !== "string") {
-            throw "Error! Object " + JSON.stringify(obj) + " is not a string primitive!";
-        }
-
-        return obj;
-    };
-
-    // Define the String object type
-    my.String = function(obj) {
-        if (Object.prototype.toString.call(obj) !== "[object String]" || typeof obj !== "object") {
-            throw "Error! Object " + JSON.stringify(obj) + " is not a String object!";
-        }
-
-        return obj;
-    };
-
-    // Define the number primitive type
-    my.number = function(obj) {
-        if (typeof obj !== "number") {
-            throw "Error! Object " + JSON.stringify(obj) + " is not a number primitive!";
-        }
-
-        return obj;
-    };
-
-    // Define the number object type
-    my.Number = function(obj) {
-        if (Object.prototype.toString.call(obj) !== "[object Number]" || typeof obj !== "object") {
-            throw "Error! Object " + JSON.stringify(obj) + " is not a Number object!";
-        }
-
-        return obj;
-    };
-
-    // Define the boolean primitive type
-    my.boolean = function(obj) {
-        if (typeof obj !== "boolean") {
-            throw "Error! Object " + JSON.stringify(obj) + " is not a boolean primitive!";
-        }
-
-        return obj;
-    };
-
-    // Define a boolean object type
-    my.Boolean = function(obj) {
-        if (Object.prototype.toString.call(obj) !== "[object Boolean]" || typeof obj !== "object") {
-            throw "Error! Object " + JSON.stringify(obj) + " is not a Boolean object!";
-        }
-
+    // Define the Any type
+    my.Any = function(obj) {
         return obj;
     };
 
