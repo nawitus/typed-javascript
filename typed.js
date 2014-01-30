@@ -10,8 +10,8 @@
 //
 // T.person({ name : "foo" }) // throws error
 // T.person({ name : "foo", age : 50 }) // returns the object
-//
-// Not implemented yet: support for basic types (string etc.)
+// More examples in example.js
+
 var T = (function() {
     var my = {},
         primitiveType,
@@ -81,8 +81,9 @@ var T = (function() {
 
     // Define a type tested function
     //
-    // Usage example:
-    //var test2 = T.fn(T.Person, T.Country, function(person, country) { /* code */ };
+    // Usage example for creating a type tested function
+    // var myFunc = T.fn(T.Person, T.Country, function(person, country) { /* code */ });
+    // myFunc(person, country);
     my.fn = function() {
         var typeargs = Array.prototype.slice.call(arguments),
             testfunction;
@@ -170,6 +171,16 @@ var T = (function() {
         return obj;
     };
     types.push(my.Any);
+
+    // Define the function type
+    my['function'] = function(fn) {
+        if (typeof fn !== "function") {
+            throw "Error! Object " + JSON.stringify(fn) + " is not a function!";
+        }
+
+        return fn;
+    };
+    types.push(my['function']);
 
     // Define log level.
     // 0 => No logging

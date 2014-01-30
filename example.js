@@ -45,6 +45,12 @@ var test2 = T.fn(T.Person, T.Country, T.Any, function(person, country, any) {
 test({ name : "foo", age : 20});
 test2({ name : "bar", age : 30}, { name : "Internet" }, "somewhere");
 
+// Define a function type
+var test3 = T.fn(T.string, T['function'], function(data, callback) {
+    console.log("calling back with data");
+    callback(data);
+});
+
 // Define a new person with type checking
 var aperson = T.Person({ name : "foobar", age : 25 });
 
