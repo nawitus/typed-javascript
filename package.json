@@ -10,7 +10,7 @@
       "email": "panu.horsmalahti@iki.fi"
     } 
   ],
-  "main": ".typed.js",
+  "main": "typed.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/nawitus/typed-javascript.git"
