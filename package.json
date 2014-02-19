@@ -4,11 +4,11 @@
   "version": "0.1.2",
   "author": "Panu Horsmalahti <panu.horsmalahti@iki.fi>",
   "description": "a simple dynamic type checking module in JavaScript",
-  "contributors": [ 
+  "contributors": [
     {
       "name": "Panu Horsmalahti",
       "email": "panu.horsmalahti@iki.fi"
-    } 
+    }
   ],
   "main": "typed.js",
   "repository": {
@@ -21,15 +21,15 @@
     "typechecking",
     "javascript"
   ],
-  "dependencies" : {},
+  "dependencies": {},
   "analyze": true,
   "devDependencies": {
-    "mocha" :  "~1.17.1",
-    "grunt-cli" :  "~0.1.13",
-    "grunt" : "~0.4.2",
-    "grunt-contrib-jshint" : "~0.8.0",
-    "grunt-contrib-watch" : "~0.5.3",
-    "grunt-mocha-test" : "~0.8.2"
+    "mocha": "~1.17.1",
+    "gulp": "~3.5.2",
+    "gulp-util": "~2.2.14",
+    "gulp-mocha": "~0.4.1",
+    "gulp-jshint": "~1.4.2",
+    "jshint-stylish": "~0.1.5"
   },
   "license": "MIT",
   "engines": {
