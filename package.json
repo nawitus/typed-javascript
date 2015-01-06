@@ -24,12 +24,12 @@
   "dependencies": {},
   "analyze": true,
   "devDependencies": {
-    "mocha": "~1.17.1",
-    "gulp": "~3.5.2",
-    "gulp-util": "~2.2.14",
-    "gulp-mocha": "~0.4.1",
-    "gulp-jshint": "~1.4.2",
-    "jshint-stylish": "~0.1.5"
+    "mocha": "~2.1.0",
+    "gulp": "~3.8.10",
+    "gulp-util": "~3.0.1",
+    "gulp-mocha": "~2.0.0",
+    "gulp-jshint": "~1.9.0",
+    "jshint-stylish": "~1.0.0"
   },
   "license": "MIT",
   "engines": {
