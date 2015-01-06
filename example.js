@@ -83,7 +83,7 @@ var booleanObject = T.Boolean(new Boolean(true));
 // });
 
 // Define a lower case type -> throw error
-// T.define("Person", {
+// T.define("person", {
 //     name: null
 // });
 
